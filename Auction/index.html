@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Auction Template</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Ancient artefacts auktion">
+	<meta name="author" content="Andrienko Serhii">
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="module/bootstrap-3.3.7/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- <script src="module/bootstrap-3.3.7/js/bootstrap.min.js"></script> -->
+	<!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+<!-- 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
+</head>
+<body>
+
+<!-- MODAL SIGN IN -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalSignIn" role="dialog">
+		<div class="modal-dialog modal-sm">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove-circle"></i></button>
+					<h4 class="modal-title">Log IN</h4>
+				</div>
+				<div class="modal-body">
+
+					<!-- Modal form-->
+						<form id="form-login" name="authorization" action="#" method="post">
+							<div class="form-group">
+								<label for="email"><i class="glyphicon glyphicon-envelope"></i> E-mail :</label>
+								<input type="email" class="form-control" id="login-usermail" name="email" form="form-login" placeholder="Enter email" pattern="[a-z\@[a-z]\.\[a-z]\]" required/>
+							</div>
+							<div class="form-group">
+								<label for="password"><i class="glyphicon glyphicon-lock"></i> Password :</label>
+								<input type="password" class="form-control" id="login-userpass" name="password" form="form-login" placeholder="Enter your Password" required/>
+							</div>
+							<div class="checkbox">
+								<label><input type="checkbox" name="remember">Remember Me :</label>
+							</div>
+							<div>
+								<button type="submit"  name="submit" class="btn btn-primary btn-block">Sign In</button>
+								<input type="reset" value="Clear form"/><p class="form-coment">Forgot your password? <a href="#">Click Here!</a></p>
+							</div>
+						</form>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<!--  MODAL REGISTRATION -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModalRegistration" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove-circle"></i></button>
+						<h4 class="modal-title">REGISTRATION</h4>
+					</div>
+					<div class="modal-body">
+						
+						<form id="form-createAccount" action="#" method="post">
+						
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group">
+										<label for="username"><i class="glyphicon glyphicon-info-sign"></i> First Name : <sup>*</sup></label>
+										<input type="text" class="form-control" name="username" id="username" placeholder="Enter Your Name" required aria-required="true" >
+									</div>
+									<div class="form-group">
+										<label for="lastname"><i class="glyphicon glyphicon-info-sign"></i> Last Name : <sup>*</sup></label>
+										<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Your Last Name" required aria-required="true" >
+									</div>
+									<div class="form-group">
+										<label><i class="glyphicon glyphicon-lock"></i> Password : <sup>*</sup></label>
+										<input type="password" class="form-control" name="password" id="password" placeholder="Enter Your Password" required/>	
+									</div>
+									<div class="form-group">
+										<label><i class="glyphicon glyphicon-lock"></i> Confirm password : <sup>*</sup></label>
+										<input type="password" class="form-control" name="password" id="confirmpassword" placeholder="Confirm Your Password" required/>	
+									</div>
+									<div class="registration-agreements">
+										<div class="checkbox">
+											<label><input type="checkbox" class="form-control" id="agreement" value="true"/> I agree to the Terms of Use</label>
+										</div>
+										<div class="checkbox">
+											<label><input type="checkbox" class="form-control" id="remember" value="true"/> Remember Me</label>
+										</div>
+										<div class="checkbox">
+											<label><input type="checkbox" class="form-control" id="news" value="true"/> I want to recive the news and offers</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="form-group">
+										<label><i class="glyphicon glyphicon-calendar"></i> Date of Birth :</label>
+										<input type="date" class="form-control" id="date" name="date"/>
+									</div>
+									<div class="form-group">
+										<label for="country"><i class="glyphicon glyphicon-globe"></i> Country :</label>
+										<select class="form-control" id="country" name="country">
+											<option value="us">United States</option>
+											<option value="en">United Kingdom</option>
+											<option value="ua">UKraine</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label><i class="glyphicon glyphicon-envelope"></i> E-mail : <sup>*</sup></label>
+										<input id="email" type="email" class="form-control" name="email" placeholder="name@domain.com" required multiple/>
+									</div>
+									<div class="form-group">
+										<label><i class="glyphicon glyphicon-earphone"></i> Phone :</label>
+										<input id="tel" type="tel" class="form-control" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+									</div>
+									<div class="checkbox">
+										<span>Gender :</span>
+										<label>Male <input type="radio" name="gender" value="Male"></label>
+										<label>Female <input type="radio" name="gender" value="Female"></label>
+									</div>
+									<div>
+										<input type="submit" class="btn btn-primary btn-block" name="submit" value="Create account">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<!-- MODALS ends -->
+
+<!-- RETURN UP ARROW -->
+	<!-- Return to Top -->
+	<!-- https://codepen.io/rdallaire/pen/apoyx -->
+	<a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-arrow-up"></i></a>
+
+<!-- RETURN UP ARROW end-->
+
+	<header id="main_anchor">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<div class="navbar-top">
+						<div class="navbar-header flex-col">
+							<p class="phones"><img src="images/phone-icon.png" alt="">Free phone: <strong>800-2345-6789</strong></p>
+						</div>
+
+						<ul class="nav navbar-nav navbar-right flex-col">
+							<li>
+								<!-- Trigger Sign In modal window with a button -->
+								<button type="button" class="btn btn-info btn-lg menu-button" data-toggle="modal" data-target="#myModalSignIn"><span class="glyphicon glyphicon-user header-button-icon"></span> Sign In</button>
+							</li>
+							<li>
+								<!-- Trigger Registration modal window with a button -->
+								<button type="button" class="btn btn-info btn-lg menu-button" data-toggle="modal" data-target="#myModalRegistration"><span class="glyphicon glyphicon-log-in header-button-icon"></span> Registration</button>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<nav id="navbar_fixed">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="logo-wrapper">
+						<img src="images/logo.png" height="50" id="logo" alt="logo">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+					<div class="navbar navbar-collapse">
+						<div class="navbar-header">
+						</div>
+						<ul class="nav navbar-nav navbar-right default">
+							<li class="hidden-xs"><a href="#main_anchor">Home</a></li>
+							<li class="hidden-xs"><a href="#about_anchor">About Us</a></li>
+							<li class="hidden-xs"><a href="#lots_anchor">Lots</a></li>
+							<li class="hidden-xs"><a href="#news_anchor">News</a></li>
+							<li class="hidden-xs"><a href="#achievements_anchor">Achievements</a></li>
+							<li class="hidden-xs"><a href="#hiw_anchor">How it works</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<main>
+
+		<section class="slider">
+			<div class="container-fluid">
+				<div class="col-md-12">
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							</ol>
+
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+								<div class="item active">
+									<img src="images/banner.png" alt="...">
+									<div class="carousel-caption slide-1">
+										<h3><span>The best</span> place</h3>
+										<p><strong>to buy and sell!</strong></p>
+										<img class="arrow" src="images/banner-arrow.png"  alt="">
+										<a href="#registration" class="banner-register">Register</a>
+									</div>
+								</div>
+							
+								<div class="item">
+									<img src="images/banner.png" alt="...">
+									<div class="carousel-caption slide-1">
+										<h3><span>The best</span> place</h3>
+										<p><strong>to buy and sell!</strong></p>
+										<img class="arrow" src="images/banner-arrow.png"  alt="">
+										<a href="#registration" class="banner-register">Register</a>
+									</div>
+								</div>
+							
+								<div class="item">
+									<img src="images/banner.png" alt="...">
+									<div class="carousel-caption slide-1">
+										<h3><span>The best</span> place</h3>
+										<p><strong>to buy and sell!</strong></p>
+										<img class="arrow" src="images/banner-arrow.png"  alt="">
+										<a href="#registration" class="banner-register">Register</a>
+									</div>
+								</div>
+						  </div>
+
+						  <!-- Controls -->
+						  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						  </a>
+						  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about_anchor" class="about-us">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h2 class="title text-left"><span>About</span> Us</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+						<article>
+							<h2 class="title">Our Mission</h2>
+							<p class="sub-title">MOTTO: "WE TAKE PRIDE IN EVERYTHING WE DO"</p>
+
+							<p>Nisl congue varius. Curabitur ullamcorper nibh ut felis ultricies, in auctor lacus vulputate. Sed id auctor augue. Aenean pellentesque bibendum leo ut porttitor. Nam non odio nunc. Vivamus viverra sodales. Nisl congue varius. Curabitur ullamcorper nibh ut felis ultricies, in auctor lacus vulputate. Sed id auctor augue. Aenean pellentesque bibendum leo ut porttitor.</p>
+
+							<p>Nisl congue varius. Curabitur ullamcorper nibh ut felis ultricies, in auctor lacus vulputate. Sed id auctor augue. Aenean pellentesque bibendum leo ut porttitor. Nam non odio nunc. Vivamus viverra sodales. Nisl congue varius. Curabitur ullamcorper nibh ut felis ultricies, in auctor lacus vulputate. Sed id auctor augue.</p>
+						</article>
+
+					</div>
+					<div class="col-xs-12 hidden-xs col-sm-6 hidden-sm col-md-6 hidden-md col-lg-6">
+						<img src="images/auction.png" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure>
+							<div class="icon">
+								<div class="icon-inner">
+									<i class="glyphicon glyphicon-thumbs-up"></i>
+								</div>
+							</div>
+							<figcaption>
+								<h3 class="title">Heading</h3>
+								<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure>
+							<div class="icon">
+								<div class="icon-inner">
+									<i class="glyphicon glyphicon-briefcase"></i>
+								</div>
+							</div>
+							<figcaption>
+								<h3 class="title">Heading</h3>
+								<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure>
+							<div class="icon">
+								<div class="icon-inner">
+									<i class="glyphicon glyphicon-time"></i>
+								</div>
+							</div>
+							<figcaption>
+								<h3 class="title">Heading</h3>
+								<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure>
+							<div class="icon">
+								<div class="icon-inner">
+									<i class="glyphicon glyphicon-globe"></i>
+								</div>
+							</div>
+							<figcaption>
+								<h3 class="title">Heading</h3>
+								<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="lots_anchor" class="lots">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h2 class="title text-center"><span>Current</span> Auctions</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure class="lot">
+							<img src="images/lot-1-1.png" alt="">
+							<figcaption>
+								<p class="lot-title"><mark>Lot #1:</mark> Ekatherine II</p>
+								<p class="lot-description">The United States Coins Section of CoinWeek is the largest repository of independent news and articles about US coins on the web. We cover Coin Profiles of Museum Quality coins, Ultra rarities, Coin Auction Analysis on virtually every major US coin auction in the country. In addition we have partnerships with most of the specialty collecting clubs to give you the best all-around coverage of the US Coin Market Welcome to CoinWeek !</p>
+								<p class="lot-price">price: <span>136</span> <em>$</em></p>
+								<p><a href="#">View Auction</a></p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure class="lot">
+							<img src="images/lot-2-1.png" alt="">
+							<figcaption>
+								<p class="lot-title"><mark>Lot #2:</mark> Georgy</p>
+								<p class="lot-description">The United States Coins Section of CoinWeek is the largest repository of independent news and articles about US coins on the web. We cover Coin Profiles of Museum Quality coins, Ultra rarities, Coin Auction Analysis on virtually every major US coin auction in the country. In addition we have partnerships with most of the specialty collecting clubs to give you the best all-around coverage of the US Coin Market Welcome to CoinWeek !</p>
+								<p class="lot-price">price: <span>240</span> <em>$</em></p>
+								<p><a href="#">View Auction</a></p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure class="lot">
+							<img src="images/lot-3-1.png" alt="">
+							<figcaption>
+								<p class="lot-title"><mark>Lot #3:</mark> Liberty</p>
+								<p class="lot-description">The United States Coins Section of CoinWeek is the largest repository of independent news and articles about US coins on the web. We cover Coin Profiles of Museum Quality coins, Ultra rarities, Coin Auction Analysis on virtually every major US coin auction in the country. In addition we have partnerships with most of the specialty collecting clubs to give you the best all-around coverage of the US Coin Market Welcome to CoinWeek !</p>
+								<p class="lot-price">price: <span>117</span> <em>$</em></p>
+								<p><a href="#">View Auction</a></p>
+							</figcaption>
+						</figure>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<figure class="lot">
+							<img src="images/lot-4-1.png" alt="">
+							<figcaption>
+								<p class="lot-title"><mark>Lot #4:</mark> Nursing</p>
+								<p class="lot-description">The United States Coins Section of CoinWeek is the largest repository of independent news and articles about US coins on the web. We cover Coin Profiles of Museum Quality coins, Ultra rarities, Coin Auction Analysis on virtually every major US coin auction in the country. In addition we have partnerships with most of the specialty collecting clubs to give you the best all-around coverage of the US Coin Market Welcome to CoinWeek !</p>
+								<p class="lot-price">price: <span>246</span> <em>$</em></p>
+								<p><a href="#">View Auction</a></p>
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<button type="submit"  name="submit" class="btn btn-primary btn-block btn-more">See all Lots</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<section id="news_anchor" class="news">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h2 class="title text-center"><span>Latest</span> News</h2>
+					<p class="sub-title text-center">The description is in this line</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-1.jpg" alt="">
+						<h3>Gadoury Auction of World Gold Coins Set for Monaco</h3>
+						<p class="lead">Gold: from Ancient Times to the Present Day featuring almost 100 $20 Liberty Head</p>
+						<div><span>07</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">In the upcoming Gadoury Auction on December 3, 2016 a large collection of world gold coins will be auctioned off. Thematically, the spectrum ranges from Republican aurei to an almost complete series of Chinese Gold Pandas.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-2.jpg" alt="">
+						<h3>World Coin News: Latvia Dedicates 2 Euro Commemorative to Vidzeme</h3>
+						<p class="lead">The coin is legal tender in the Republic of Latvia and other euro area countries.</p>
+						<div><span>05</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">By Bank of Latvia: On 15 November 2016, Bank of Latvia (Latvijas Banka) is issuing a 2 euro commemorative coin dedicated to Vidzeme. his coin, featuring the coat of arms of Vidzeme.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+				<div class="col-xs-12 hidden-sm col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-3.jpg" alt="">
+						<h3>Malta Issues 2 Euro Commemorative Coin – Ġgantija Temples</h3>
+						<p class="lead">By Central Bank of Malta. Series of coins depicting Malta's prehistoric monuments</p>
+						<div><span>06</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">This coin is the first of a series of seven that will be issued by the Bank which will depict Malta's prehistoric monuments that are listed by UNESCO as World Heritage Sites.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-4.jpg" alt="">
+						<h3>New Bullion Coin from Pobjoy: 2016 Isle of Man Gold Christmas Angel</h3>
+						<p class="lead">This is the last Christmas Gold Angel to be released by Pobjoy Mint on behalf of the Isle of Man</p>
+						<div><span>04</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">Every year a special Gold Angel is released on behalf of the Isle of Man to celebrate the Christmas season. Only a limited number of these unique coins are struck with a special Privy Mark.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-5.jpg" alt="">
+						<h3>New Ancient, World Coins from Atlas Numismatics – September 2016</h3>
+						<p class="lead">These seven coins are just a sample of the 713 recent additions to our inventory.</p>
+						<div><span>03</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">Head of Arethusa to left, her hair bound up in a sphendone ornamented with two stars, wearing a single-pendant earring and a pearl necklace.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+				<div class="col-xs-12 hidden-sm col-sm-6 col-md-4 col-lg-4">
+					<figure>
+						<img class="news-image" src="images/news-6.jpg" alt="">
+						<h3>Impressive Chinese Coins Highlight Hong Kong Auction</h3>
+						<p class="lead">We are extremely pleased and excited to offer our second semi-annual Hong Kong Coin Auction</p>
+						<div><span>01</span> <time datetime="2017-02-14">2016</time></div>
+						<p class="content">Accompanied by the legendary Wa She Wong pedigree, this coin is almost certain to sit atop all others when the sale is concluded. Another area of strength is coinage from the People's Republic of China.</p>
+						<p class="text-right"><a class="read-more" href="#">read more</a></p>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="achievements_anchor" class="achievements">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h2 class="title white text-center">Our <span>Achievements</span></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<figure>
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+					<figure>
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+					<figure>
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-xs-12 hidden-xs col-sm-4 col-md-4 col-lg-4">
+					<img src="images/winner.png" alt="" class="cube">
+				</div>
+				<div class="col-xs-12 hidden-xs col-sm-4 col-md-4 col-lg-4">
+					<figure class="text-right">
+						<i class="glyphicon glyphicon-star"></i>
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+					<figure class="text-right">
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+					<figure class="text-right">
+						<figcaption>
+							<h3 class="title">Golden Dragon Award</h3>
+							<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="hiw_anchor" class="how-it-work">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h2 class="text-center title">How it works</h2>
+					<p class="text-center sub-title">The description is in this line</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+					<figure>
+						<img src="images/icon-user.png" alt="">
+						<img src="images/button-right.png" class="features-arrow" alt="">
+						<figcaption>
+							<h3>Register</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+					<figure>
+						<img src="images/icon-dollar.png" alt="">
+						<img src="images/button-right.png" class="features-arrow" alt="">
+						<figcaption>
+							<h3>Buy or Bid</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+					<figure>
+						<img src="images/icon-gavel.png" alt="">
+						<img src="images/button-right.png" class="features-arrow" alt="">
+						<figcaption>
+							<h3>Submit a Bid</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+					<figure>
+						<img src="images/icon-trophy.png" alt="">
+						<figcaption>
+							<h3>Win</h3>
+							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</main>
+
+	<footer>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+					<div class="widget">
+						<h3>Information</h3>
+						<ul>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Price list</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Registration</a></li>
+							<li><a href="#">Blogs</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+					<div class="widget">
+						<h3>Help <span>Center</span></h3>
+						<ul>
+							<li><a href="#">Assistance</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Winner's comments</a></li>
+							<li><a href="#">Refill the account</a></li>
+							<li><a href="#">Payments</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-lg-3">
+					<div class="widget">
+						<h3>Partners</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span>Cras ut ipsum</span> faucibus, euismod nisi sed, finibus ex. Ut consectetur iaculis ipsum, vitae scelerisque magnaentum semper.</p>
+						<p>Donec quis tortor justo. Ut ullamcorper interdum vulputate.</p>
+						<ul class="social-links">
+							<li><a href="#"><i class="facebook"></i></a></li>
+							<li><a href="#"><i class="twitter"></i></a></li>
+							<li><a href="#"><i class="google_plus"></i></a></li>
+							<li><a href="#"><i class="linkedin"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-lg-3">
+					<div class="widget widget-sm widget-md">
+						<h3>Newsletter</h3>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+								<p>Win a coupon of 20% by subscribing to our newsletter, it's easy just enter your e-mail below:</p>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+								<form method="post" name="newsletter">
+									<input type="email" name="email" placeholder="E-mail...">
+									<button type="submit" name="commit" id="subscribe_now">Subscribe</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="copyright_text">
+						<p>created by Andrienko Serhii | OnLine Auction © 2016 <span>Privacy Policy</span> | <span>Terms & Conditions</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<script src="module/bootstrap-3.3.7/js/modal.js"></script>
+	<script src="module/bootstrap-3.3.7/js/carousel.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
